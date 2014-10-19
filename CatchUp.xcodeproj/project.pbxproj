@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C40299A19F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40299919F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift */; };
+		4C40299C19F44B670095DEB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40299B19F44B670095DEB4 /* Parse.framework */; };
+		4C40299E19F44BD40095DEB4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40299D19F44BD40095DEB4 /* StoreKit.framework */; };
+		4C4029A019F44BDA0095DEB4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40299F19F44BDA0095DEB4 /* SystemConfiguration.framework */; };
+		4C4029A219F44BE20095DEB4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A119F44BE20095DEB4 /* AudioToolbox.framework */; };
+		4C4029A419F44BE90095DEB4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A319F44BE90095DEB4 /* CFNetwork.framework */; };
+		4C4029A619F44BF00095DEB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A519F44BF00095DEB4 /* CoreGraphics.framework */; };
+		4C4029A819F44BF60095DEB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A719F44BF60095DEB4 /* CoreLocation.framework */; };
+		4C4029AA19F44BFC0095DEB4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A919F44BFC0095DEB4 /* libz.dylib */; };
+		4C4029AC19F44C010095DEB4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029AB19F44C010095DEB4 /* MobileCoreServices.framework */; };
+		4C4029AE19F44C080095DEB4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029AD19F44C080095DEB4 /* QuartzCore.framework */; };
+		4C4029B019F44C0C0095DEB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029AF19F44C0C0095DEB4 /* Security.framework */; };
+		4C4029B219F44C240095DEB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029B119F44C240095DEB4 /* Bolts.framework */; };
 		4CCD3DE619F4345A0055CE58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD3DE519F4345A0055CE58 /* AppDelegate.swift */; };
 		4CCD3DE819F4345A0055CE58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD3DE719F4345A0055CE58 /* ViewController.swift */; };
 		4CCD3DEB19F4345A0055CE58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD3DE919F4345A0055CE58 /* Main.storyboard */; };
 		4CCD3DED19F4345A0055CE58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD3DEC19F4345A0055CE58 /* Images.xcassets */; };
 		4CCD3DF019F4345A0055CE58 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD3DEE19F4345A0055CE58 /* LaunchScreen.xib */; };
 		4CCD3DFC19F4345A0055CE58 /* CatchUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD3DFB19F4345A0055CE58 /* CatchUpTests.swift */; };
+		9BA3B3C8546C72C64D5A5161 /* libPods-CatchUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5467F7881EC28FFD1CF18596 /* libPods-CatchUp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +40,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C40299819F4385C0095DEB4 /* CatchUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchUp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C40299919F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePhoneNumberViewController.swift; sourceTree = "<group>"; };
+		4C40299B19F44B670095DEB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4C40299D19F44BD40095DEB4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4C40299F19F44BDA0095DEB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4C4029A119F44BE20095DEB4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4C4029A319F44BE90095DEB4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4C4029A519F44BF00095DEB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4C4029A719F44BF60095DEB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4C4029A919F44BFC0095DEB4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4C4029AB19F44C010095DEB4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4C4029AD19F44C080095DEB4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4C4029AF19F44C0C0095DEB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4C4029B119F44C240095DEB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4CCD3DE019F4345A0055CE58 /* CatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCD3DE419F4345A0055CE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCD3DE519F4345A0055CE58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +64,9 @@
 		4CCD3DF519F4345A0055CE58 /* CatchUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatchUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCD3DFA19F4345A0055CE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCD3DFB19F4345A0055CE58 /* CatchUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchUpTests.swift; sourceTree = "<group>"; };
+		4E2B0397CE1388E22528A05D /* Pods-CatchUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CatchUp/Pods-CatchUp.debug.xcconfig"; sourceTree = "<group>"; };
+		5467F7881EC28FFD1CF18596 /* libPods-CatchUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CatchUp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B735488D24DF3C2B738E828 /* Pods-CatchUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CatchUp/Pods-CatchUp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +74,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C40299E19F44BD40095DEB4 /* StoreKit.framework in Frameworks */,
+				4C4029B019F44C0C0095DEB4 /* Security.framework in Frameworks */,
+				4C4029AE19F44C080095DEB4 /* QuartzCore.framework in Frameworks */,
+				4C4029AC19F44C010095DEB4 /* MobileCoreServices.framework in Frameworks */,
+				4C4029AA19F44BFC0095DEB4 /* libz.dylib in Frameworks */,
+				4C4029A819F44BF60095DEB4 /* CoreLocation.framework in Frameworks */,
+				4C4029A619F44BF00095DEB4 /* CoreGraphics.framework in Frameworks */,
+				4C4029B219F44C240095DEB4 /* Bolts.framework in Frameworks */,
+				4C4029A419F44BE90095DEB4 /* CFNetwork.framework in Frameworks */,
+				4C4029A219F44BE20095DEB4 /* AudioToolbox.framework in Frameworks */,
+				4C4029A019F44BDA0095DEB4 /* SystemConfiguration.framework in Frameworks */,
+				4C40299C19F44B670095DEB4 /* Parse.framework in Frameworks */,
+				9BA3B3C8546C72C64D5A5161 /* libPods-CatchUp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +106,8 @@
 				4CCD3DE219F4345A0055CE58 /* CatchUp */,
 				4CCD3DF819F4345A0055CE58 /* CatchUpTests */,
 				4CCD3DE119F4345A0055CE58 /* Products */,
+				DE8CB243CC760F4DB2C098F8 /* Pods */,
+				90A9143F7CA321A2F10AB167 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +124,13 @@
 			isa = PBXGroup;
 			children = (
 				4CCD3DE519F4345A0055CE58 /* AppDelegate.swift */,
+				4C40299919F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift */,
 				4CCD3DE719F4345A0055CE58 /* ViewController.swift */,
 				4CCD3DE919F4345A0055CE58 /* Main.storyboard */,
 				4CCD3DEC19F4345A0055CE58 /* Images.xcassets */,
 				4CCD3DEE19F4345A0055CE58 /* LaunchScreen.xib */,
 				4CCD3DE319F4345A0055CE58 /* Supporting Files */,
+				4C40299819F4385C0095DEB4 /* CatchUp-Bridging-Header.h */,
 			);
 			path = CatchUp;
 			sourceTree = "<group>";
@@ -90,6 +138,8 @@
 		4CCD3DE319F4345A0055CE58 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C4029B119F44C240095DEB4 /* Bolts.framework */,
+				4C40299B19F44B670095DEB4 /* Parse.framework */,
 				4CCD3DE419F4345A0055CE58 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -112,6 +162,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		90A9143F7CA321A2F10AB167 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C4029AF19F44C0C0095DEB4 /* Security.framework */,
+				4C4029AD19F44C080095DEB4 /* QuartzCore.framework */,
+				4C4029AB19F44C010095DEB4 /* MobileCoreServices.framework */,
+				4C4029A919F44BFC0095DEB4 /* libz.dylib */,
+				4C4029A719F44BF60095DEB4 /* CoreLocation.framework */,
+				4C4029A519F44BF00095DEB4 /* CoreGraphics.framework */,
+				4C4029A319F44BE90095DEB4 /* CFNetwork.framework */,
+				4C4029A119F44BE20095DEB4 /* AudioToolbox.framework */,
+				4C40299F19F44BDA0095DEB4 /* SystemConfiguration.framework */,
+				4C40299D19F44BD40095DEB4 /* StoreKit.framework */,
+				5467F7881EC28FFD1CF18596 /* libPods-CatchUp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE8CB243CC760F4DB2C098F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E2B0397CE1388E22528A05D /* Pods-CatchUp.debug.xcconfig */,
+				5B735488D24DF3C2B738E828 /* Pods-CatchUp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CCD3DFF19F4345A0055CE58 /* Build configuration list for PBXNativeTarget "CatchUp" */;
 			buildPhases = (
+				0389242957784A472BC75C96 /* Check Pods Manifest.lock */,
 				4CCD3DDC19F4345A0055CE58 /* Sources */,
 				4CCD3DDD19F4345A0055CE58 /* Frameworks */,
 				4CCD3DDE19F4345A0055CE58 /* Resources */,
+				3ECBCB3A2535FB7A7D6131A9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +240,7 @@
 				TargetAttributes = {
 					4CCD3DDF19F4345A0055CE58 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = QQ6H83VL9N;
 					};
 					4CCD3DF419F4345A0055CE58 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -207,11 +287,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0389242957784A472BC75C96 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3ECBCB3A2535FB7A7D6131A9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CatchUp/Pods-CatchUp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CCD3DDC19F4345A0055CE58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C40299A19F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift in Sources */,
 				4CCD3DE819F4345A0055CE58 /* ViewController.swift in Sources */,
 				4CCD3DE619F4345A0055CE58 /* AppDelegate.swift in Sources */,
 			);
@@ -334,21 +448,35 @@
 		};
 		4CCD3E0019F4345A0055CE58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E2B0397CE1388E22528A05D /* Pods-CatchUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CatchUp",
+				);
 				INFOPLIST_FILE = CatchUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CatchUp/CatchUp-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		4CCD3E0119F4345A0055CE58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B735488D24DF3C2B738E828 /* Pods-CatchUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CatchUp",
+				);
 				INFOPLIST_FILE = CatchUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CatchUp/CatchUp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -405,6 +533,7 @@
 				4CCD3E0119F4345A0055CE58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CCD3E0219F4345A0055CE58 /* Build configuration list for PBXNativeTarget "CatchUpTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +542,7 @@
 				4CCD3E0419F4345A0055CE58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

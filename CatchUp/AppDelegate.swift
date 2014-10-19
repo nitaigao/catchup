@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  CatchUp
-//
-//  Created by Nicholas Kostelnik on 19/10/2014.
-//  Copyright (c) 2014 Nicholas Kostelnik. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +7,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        Parse.setApplicationId("m2lzGhNQcPev2ivKqfRRVr4ZP12k0LDP79FzMkTl", clientKey:"E9GdH2RRXh1k88SnjtRiEl6tCbfcTshi5MFsVAgw")
+        
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "user_id")
+
         return true
     }
 

@@ -1,0 +1,15 @@
+PODS:
+  - APAddressBook (0.1.4):
+    - APAddressBook/Core
+  - APAddressBook/Core (0.1.4)
+  - NSHash (1.0.1)
+
+DEPENDENCIES:
+  - APAddressBook
+  - NSHash (~> 1.0.1)
+
+SPEC CHECKSUMS:
+  APAddressBook: 2b23557950065f8eb048e421dd4a18373f69949b
+  NSHash: 757e3ba784954b730eae472f3f4e12eb79a18d82
+
+COCOAPODS: 0.34.4
