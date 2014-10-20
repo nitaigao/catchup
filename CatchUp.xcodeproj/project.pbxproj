@@ -467,6 +467,7 @@
 				INFOPLIST_FILE = CatchUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e9bb9c81-c8bd-4a69-9987-ac298e3f79ea";
 				SWIFT_OBJC_BRIDGING_HEADER = "CatchUp/CatchUp-Bridging-Header.h";
 			};
 			name = Debug;
@@ -484,6 +485,7 @@
 				INFOPLIST_FILE = CatchUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e9bb9c81-c8bd-4a69-9987-ac298e3f79ea";
 				SWIFT_OBJC_BRIDGING_HEADER = "CatchUp/CatchUp-Bridging-Header.h";
 			};
 			name = Release;
