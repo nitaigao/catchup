@@ -11,15 +11,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func imAvailable() {
-        var phoneNumber = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-        var query = PFQuery(className: "AppUser")
-        query.whereKey("contacts", equalTo: phoneNumber)
-        query.findObjectsInBackgroundWithBlock { (results:[AnyObject]!, error:NSError!) -> Void in
-            if error != nil { println(error) }
-            for result in results {
-                println(result)
-            }
-        }
+        var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
+        var user = PFObject(className: "Contact")
+        user["user_id"] = userId
+        user["available"] = true
+        user.saveEventually()
+        self.performSegueWithIdentifier("show_contacts", sender: self)
     }
 }
 

@@ -12,4 +12,7 @@
 
 #import <NSHash/NSString+NSHash.h>
 
+#import <DTTableViewManager/DTTableViewController.h>
+#import <DTTableViewManager/DTTableViewCell.h>
+
 #endif

@@ -6,6 +6,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'CatchUp' do
 	pod 'APAddressBook'
     pod 'NSHash', '~> 1.0.1'
+    pod 'DTTableViewManager'
 end
 
 target 'CatchUpTests' do

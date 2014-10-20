@@ -2,14 +2,34 @@ PODS:
   - APAddressBook (0.1.4):
     - APAddressBook/Core
   - APAddressBook/Core (0.1.4)
+  - DTModelStorage (1.1.0):
+    - DTModelStorage/All
+  - DTModelStorage/All (1.1.0):
+    - DTModelStorage/Core
+    - DTModelStorage/CoreDataStorage
+    - DTModelStorage/MemoryStorage
+    - DTModelStorage/Utilities
+  - DTModelStorage/Core (1.1.0)
+  - DTModelStorage/CoreDataStorage (1.1.0):
+    - DTModelStorage/Core
+  - DTModelStorage/MemoryStorage (1.1.0):
+    - DTModelStorage/Core
+    - DTModelStorage/Utilities
+  - DTModelStorage/Utilities (1.1.0):
+    - DTModelStorage/MemoryStorage
+  - DTTableViewManager (3.0.0):
+    - DTModelStorage (~> 1.1.0)
   - NSHash (1.0.1)
 
 DEPENDENCIES:
   - APAddressBook
+  - DTTableViewManager
   - NSHash (~> 1.0.1)
 
 SPEC CHECKSUMS:
   APAddressBook: 2b23557950065f8eb048e421dd4a18373f69949b
+  DTModelStorage: c694a64e6c7fd8561285c00189ccf8b4f604c3c6
+  DTTableViewManager: cf72d001556105e5c6b5cb211c208f81651e63d7
   NSHash: 757e3ba784954b730eae472f3f4e12eb79a18d82
 
 COCOAPODS: 0.34.4
