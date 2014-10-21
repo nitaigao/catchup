@@ -1,14 +1,12 @@
 import Foundation
 
 class ContactsTableViewCell: UITableViewCell {
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    func updateWithModel(model: AnyObject!) {
-////        let contact = model as APContact
-        self.textLabel?.text? = model as String
-    }
-    
+  
+  var contact : APContact?
+  
+  func updateWithModel(model: Contact) {
+    contact = model.contact!
+    self.textLabel?.text = model.contact!.firstName + " " + model.contact!.lastName
+    self.accessoryType = model.selected ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+  }
 }
