@@ -96,13 +96,12 @@ class ContactsTableViewController: UITableViewController {
         var phone = cell.contact?.phones.first as String
         contacts.removeObject(phone.SHA1())
         
-        user.saveInBackgroundWithBlock({ (ok:Bool, error:NSError!) -> Void in
-//          var cloud = PFCloud()
+//        user.saveInBackgroundWithBlock({ (ok:Bool, error:NSError!) -> Void in
 //          var parameters = NSDictionary()
-//          cloud.callFunctionInBackground("push", withParameters:parameters)
-        })
+//          parameters.setValue(userId, forKey: "user_id")
+//          PFCloud.callFunctionInBackground("push", withParameters:parameters, block: nil)
+//        })
       })
-
     } else {
       cell.accessoryType = UITableViewCellAccessoryType.Checkmark
       

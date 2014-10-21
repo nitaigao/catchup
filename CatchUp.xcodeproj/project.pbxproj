@@ -23,6 +23,8 @@
 		4C966C2A19F58E8F00A03660 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */; };
 		4C9ED5A319F5958000B3A895 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */; };
 		4CB2255E19F6A83600D8814A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2255D19F6A83600D8814A /* Contact.swift */; };
+		4CB2256019F6BF5E00D8814A /* AvailableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2255F19F6BF5E00D8814A /* AvailableTableViewController.swift */; };
+		4CB2256219F6BFAD00D8814A /* AvailableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2256119F6BFAD00D8814A /* AvailableTableViewCell.swift */; };
 		4CCD3DE619F4345A0055CE58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD3DE519F4345A0055CE58 /* AppDelegate.swift */; };
 		4CCD3DE819F4345A0055CE58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD3DE719F4345A0055CE58 /* ViewController.swift */; };
 		4CCD3DEB19F4345A0055CE58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD3DE919F4345A0055CE58 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		4CB2255D19F6A83600D8814A /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		4CB2255F19F6BF5E00D8814A /* AvailableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableTableViewController.swift; sourceTree = "<group>"; };
+		4CB2256119F6BFAD00D8814A /* AvailableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableTableViewCell.swift; sourceTree = "<group>"; };
 		4CCD3DE019F4345A0055CE58 /* CatchUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCD3DE419F4345A0055CE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCD3DE519F4345A0055CE58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */,
 				4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */,
 				4CB2255D19F6A83600D8814A /* Contact.swift */,
+				4CB2255F19F6BF5E00D8814A /* AvailableTableViewController.swift */,
+				4CB2256119F6BFAD00D8814A /* AvailableTableViewCell.swift */,
 			);
 			path = CatchUp;
 			sourceTree = "<group>";
@@ -337,9 +343,11 @@
 				4CB2255E19F6A83600D8814A /* Contact.swift in Sources */,
 				4C40299A19F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift in Sources */,
 				4CCD3DE819F4345A0055CE58 /* ViewController.swift in Sources */,
+				4CB2256219F6BFAD00D8814A /* AvailableTableViewCell.swift in Sources */,
 				4C9ED5A319F5958000B3A895 /* ContactsTableViewCell.swift in Sources */,
 				4C966C2A19F58E8F00A03660 /* ContactsTableViewController.swift in Sources */,
 				4CCD3DE619F4345A0055CE58 /* AppDelegate.swift in Sources */,
+				4CB2256019F6BF5E00D8814A /* AvailableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
