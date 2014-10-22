@@ -23,39 +23,43 @@ class ContactsTableViewController: UITableViewController {
     self.addressBook.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true),
       NSSortDescriptor(key: "lastName", ascending: true)]
     self.addressBook.filterBlock = {(contact: APContact!) -> Bool in
-      return contact.phones.count > 0
+      return contact.phones.count > 0 && contact.firstName != nil && contact.lastName != nil
     }
+
     
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
     self.addressBook.loadContacts { (abContacts:[AnyObject]!, error:NSError!) -> Void in
-      var query = PFQuery(className: "User")
-      query.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
-        var selectedContacts = user["contacts"] as [String]
-        
+      var query = PFQuery(className: "Contact")
+      query.whereKey("user_id", equalTo: userId)
+      query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]!, error:NSError!) -> Void in
         for abContact in abContacts {
-          var contact = Contact(fromContact:abContact as APContact)
-          self.memoryStorage.addObject(contact)
-
           let contactId = abContact.phones?.first?.SHA1()
+          var contact = Contact(fromContact:abContact as APContact)
           
-          var isSelected = selectedContacts.reduce(false, combine: { (m:Bool, selectedContact:String) -> Bool in
-            if selectedContact == contactId! {
+          var isSelected = results.reduce(false, combine: { (m:Bool, result:AnyObject) -> Bool in
+            let selectedContact = result as PFObject
+            let selectedContactId = selectedContact["contact_id"] as String
+            
+            if selectedContactId == contactId! {
               return true
             }
             return m
           })
           
           contact.selected = isSelected
-
+          self.memoryStorage.addObject(contact)
         }
+        
         dispatch_async(dispatch_get_main_queue()) {
-          self.tableView.reloadData()
+          self.tableView.reloadData ()
         }
       })
     }
   }
   
-  
+  override func viewDidLoad() {
+    self.refreshData()
+  }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
@@ -70,11 +74,6 @@ class ContactsTableViewController: UITableViewController {
       if nil == user {
         self.performSegueWithIdentifier("capture_phone", sender: self)
       }
-      else {
-        dispatch_async(dispatch_get_main_queue()) {
-          self.refreshData()
-        }
-      }
     })
   }
   
@@ -86,32 +85,28 @@ class ContactsTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     var cell = tableView.cellForRowAtIndexPath(indexPath) as ContactsTableViewCell
     
-    if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
-      cell.accessoryType = UITableViewCellAccessoryType.None
+    cell.toggleSelection()
+  
+    var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
+    var contact = PFObject(className: "Contact")
+    if cell.contact!.selected {
+      contact["user_id"] = userId;
       
-      var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-      var query = PFQuery(className: "User")
-      query.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
-        var contacts = user["contacts"] as NSMutableArray
-        var phone = cell.contact?.phones.first as String
-        contacts.removeObject(phone.SHA1())
-        
-//        user.saveInBackgroundWithBlock({ (ok:Bool, error:NSError!) -> Void in
-//          var parameters = NSDictionary()
-//          parameters.setValue(userId, forKey: "user_id")
-//          PFCloud.callFunctionInBackground("push", withParameters:parameters, block: nil)
-//        })
-      })
+      var phone = cell.contact?.contact?.phones.first as String
+      contact["contact_id"] = phone.SHA1()
+      contact.saveEventually()
     } else {
-      cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+      var query = PFQuery(className: "Contact")
+      query.whereKey("user_id", equalTo:userId)
       
-      var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-      var query = PFQuery(className: "User")
-      query.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
-        var contacts = user["contacts"] as NSMutableArray
-        var phone = cell.contact?.phones.first as String
-        contacts.addObject(phone.SHA1())
-        user.saveEventually()
+      var phone = cell.contact?.contact?.phones.first as String
+      query.whereKey("contact_id", equalTo:phone.SHA1())
+      
+      query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]!, error:NSError!) -> Void in
+        for result in results {
+          let object = result as PFObject
+          object.deleteEventually()
+        }
       })
     }
     
