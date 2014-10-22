@@ -9,5 +9,4 @@ class Contact {
     contact = abContact
     selected = false
   }
-  
 }

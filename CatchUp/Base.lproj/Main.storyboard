@@ -51,7 +51,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="AGU-Ft-Re5" style="IBUITableViewCellStyleDefault" id="WCf-jR-zZQ" customClass="AvailableTableViewCell" customModule="CatchUp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="available_cell" textLabel="AGU-Ft-Re5" style="IBUITableViewCellStyleDefault" id="WCf-jR-zZQ" customClass="AvailableTableViewCell" customModule="CatchUp" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCf-jR-zZQ" id="nz3-bT-nTi">
                                     <autoresizingMask key="autoresizingMask"/>

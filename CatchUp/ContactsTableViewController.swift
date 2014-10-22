@@ -25,7 +25,6 @@ class ContactsTableViewController: UITableViewController {
     self.addressBook.filterBlock = {(contact: APContact!) -> Bool in
       return contact.phones.count > 0 && contact.firstName != nil && contact.lastName != nil
     }
-
     
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
     self.addressBook.loadContacts { (abContacts:[AnyObject]!, error:NSError!) -> Void in
@@ -88,25 +87,26 @@ class ContactsTableViewController: UITableViewController {
     cell.toggleSelection()
   
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-    var contact = PFObject(className: "Contact")
+    
     if cell.contact!.selected {
-      contact["user_id"] = userId;
-      
+      var user = PFQuery.getObjectOfClass("User", objectId: userId)
+      var contacts = user.relationForKey("contacts")
+      var contact = PFObject(className: "Contact")
       var phone = cell.contact?.contact?.phones.first as String
       contact["contact_id"] = phone.SHA1()
-      contact.saveEventually()
+      contact.saveEventually({ (result:Bool, error:NSError!) -> Void in
+        contacts.addObject(contact)
+        user.saveEventually()
+      })
     } else {
-      var query = PFQuery(className: "Contact")
-      query.whereKey("user_id", equalTo:userId)
-      
-      var phone = cell.contact?.contact?.phones.first as String
-      query.whereKey("contact_id", equalTo:phone.SHA1())
-      
-      query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]!, error:NSError!) -> Void in
-        for result in results {
-          let object = result as PFObject
-          object.deleteEventually()
-        }
+      var query = PFQuery(className: "User")
+      query.getObjectInBackgroundWithId(userId, block: { (result:PFObject!, error:NSError!) -> Void in
+        var contacts = result.relationForKey("contacts")
+        var phone  = cell.contact?.contact?.phones.first as String
+        contacts.query().whereKey("contact_id", equalTo:phone.SHA1())
+        contacts.query().getFirstObjectInBackgroundWithBlock({ (result:PFObject!, error:NSError!) -> Void in
+          result.deleteEventually()
+        })
       })
     }
     
