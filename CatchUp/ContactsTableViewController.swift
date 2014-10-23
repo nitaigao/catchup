@@ -1,5 +1,19 @@
 import Foundation
 
+class ContactsStorage {
+  func isContactSelected(userId:String, contactId:String, completion:(Bool)->Void) {
+    var userQuery = PFQuery(className: "User")
+    userQuery.getObjectInBackgroundWithId(userId, { (user:PFObject!, error:NSError!) -> Void in
+      var contactsQuery = user.relationForKey("contacts").query()
+      contactsQuery.whereKey("contact_id", equalTo:contactId)
+      contactsQuery.getFirstObjectInBackgroundWithBlock({ (result:PFObject!, error:NSError!) -> Void in
+        let isSelected : Bool = result != nil
+        completion(isSelected)
+      })
+    })
+  }
+}
+
 class ContactsTableViewController: UITableViewController {
   
   let memoryStorage : NSMutableArray = NSMutableArray()
@@ -18,30 +32,24 @@ class ContactsTableViewController: UITableViewController {
   func refreshData() {
     self.memoryStorage.removeAllObjects()
     
+    let contactStorage = ContactsStorage()
+    
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
     var user = PFQuery.getObjectOfClass("User", objectId: userId)
-    var pfContacts = user.relationForKey("contacts")
     
     let addressBook = AddressBook();
     addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
       for abContact in abContacts {
         var contact = Contact(fromContact:abContact as APContact)
         self.memoryStorage.addObject(contact)
-        
-        var query = pfContacts.query()
         let contactId = abContact.phones?.first?.SHA1()
-        query.whereKey("contact_id", equalTo:contactId)
-        query.getFirstObjectInBackgroundWithBlock({ (result:PFObject!, error:NSError!) -> Void in
-          if (result != nil) {
-            contact.selected = true
-          }
-          
+        contactStorage.isContactSelected(userId!, contactId:contactId!, completion: { (result:Bool) -> Void in
+          contact.selected = result
           if abContacts.last!.isEqual(abContact) {
             dispatch_async(dispatch_get_main_queue()) {
               self.tableView.reloadData()
             }
           }
-
         })
       }
     }

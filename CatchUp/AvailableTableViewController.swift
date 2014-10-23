@@ -18,7 +18,8 @@ class AvailableTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell = tableView.dequeueReusableCellWithIdentifier("available_cell") as AvailableTableViewCell
-    var name = self.memoryStorage.objectAtIndex(indexPath.row) as String
+    var contact = self.memoryStorage.objectAtIndex(indexPath.row) as APContact
+    let name = contact.firstName + " " + contact.lastName
     cell.updateWithModel(name)
     return cell;
   }
@@ -32,21 +33,29 @@ class AvailableTableViewController: UITableViewController {
     query.whereKey("contact_id", equalTo: phoneId)
     query.findObjectsInBackgroundWithBlock { (contactResults:[AnyObject]!, error:NSError!) -> Void in
       for contactResult in contactResults {
-        let contactId = contactResult["contact_id"] as NSString
         
         var userQuery = PFQuery(className: "User")
         userQuery.whereKey("contacts", equalTo: contactResult)
         userQuery.getFirstObjectInBackgroundWithBlock({ (userResult:PFObject!, error:NSError!) -> Void in
           let userPhoneId = userResult["phone_id"] as NSString
           
+          var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
+          var user = PFQuery.getObjectOfClass("User", objectId: userId)
+          var pfContacts = user.relationForKey("contacts")
+          
           let addressBook = AddressBook()
-          addressBook.findContactsWithPhoneId(userPhoneId, completion: { (results:[String]) -> Void in
+          addressBook.findContactsWithPhoneId(userPhoneId, completion: { (results:[APContact]) -> Void in
             for result in results {
-              self.memoryStorage.addObject(result)
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-              self.tableView.reloadData()
+              let contactStorage = ContactsStorage()
+              contactStorage.isContactSelected(userId, contactId: userPhoneId, completion: { (isSelected:Bool) -> Void in
+                if isSelected {
+                  self.memoryStorage.addObject(result)
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                  self.tableView.reloadData()
+                }
+              })
             }
           })
         })

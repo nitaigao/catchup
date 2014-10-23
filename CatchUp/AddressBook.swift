@@ -1,7 +1,7 @@
 import Foundation
 
 class AddressBook {
-  func findContactsWithPhoneId(phoneId:String, completion:([String])->Void) {
+  func findContactsWithPhoneId(phoneId:String, completion:([APContact])->Void) {
     let addressBook = APAddressBook()
     addressBook.filterBlock = {(apContact: APContact!) -> Bool in
       return apContact.phones.reduce(false, combine: { (mem:Bool, phone:AnyObject) -> Bool in
@@ -14,12 +14,13 @@ class AddressBook {
     }
     
     addressBook.loadContacts { (contacts:[AnyObject]!, error:NSError!) -> Void in
-      var names = contacts.map({ (contact:AnyObject) -> String in
-        let abContact = contact as APContact
-        let name = abContact.firstName + " " + abContact.lastName
-        return name;
-      })
-      completion(names)
+      completion(contacts as [APContact])
+//      var names = contacts.map({ (contact:AnyObject) -> String in
+//        let abContact = contact as APContact
+//        let name = abContact.firstName + " " + abContact.lastName
+//        return name;
+//      })
+//      completion(names)
     }
   }
   
