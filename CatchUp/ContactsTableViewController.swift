@@ -2,7 +2,6 @@ import Foundation
 
 class ContactsTableViewController: UITableViewController {
   
-  let addressBook = APAddressBook()
   let memoryStorage : NSMutableArray = NSMutableArray()
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -19,49 +18,43 @@ class ContactsTableViewController: UITableViewController {
   func refreshData() {
     self.memoryStorage.removeAllObjects()
     
-    self.addressBook.fieldsMask = APContactField.Default
-    self.addressBook.sortDescriptors = [NSSortDescriptor(key: "firstName", ascending: true),
-      NSSortDescriptor(key: "lastName", ascending: true)]
-    self.addressBook.filterBlock = {(contact: APContact!) -> Bool in
-      return contact.phones.count > 0 && contact.firstName != nil && contact.lastName != nil
-    }
-    
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-    self.addressBook.loadContacts { (abContacts:[AnyObject]!, error:NSError!) -> Void in
-      var query = PFQuery(className: "Contact")
-      query.whereKey("user_id", equalTo: userId)
-      query.findObjectsInBackgroundWithBlock({ (results:[AnyObject]!, error:NSError!) -> Void in
-        for abContact in abContacts {
-          let contactId = abContact.phones?.first?.SHA1()
-          var contact = Contact(fromContact:abContact as APContact)
-          
-          var isSelected = results.reduce(false, combine: { (m:Bool, result:AnyObject) -> Bool in
-            let selectedContact = result as PFObject
-            let selectedContactId = selectedContact["contact_id"] as String
-            
-            if selectedContactId == contactId! {
-              return true
-            }
-            return m
-          })
-          
-          contact.selected = isSelected
-          self.memoryStorage.addObject(contact)
-        }
+    var user = PFQuery.getObjectOfClass("User", objectId: userId)
+    var pfContacts = user.relationForKey("contacts")
+    
+    let addressBook = AddressBook();
+    addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
+      for abContact in abContacts {
+        var contact = Contact(fromContact:abContact as APContact)
+        self.memoryStorage.addObject(contact)
         
-        dispatch_async(dispatch_get_main_queue()) {
-          self.tableView.reloadData ()
-        }
-      })
+        var query = pfContacts.query()
+        let contactId = abContact.phones?.first?.SHA1()
+        query.whereKey("contact_id", equalTo:contactId)
+        query.getFirstObjectInBackgroundWithBlock({ (result:PFObject!, error:NSError!) -> Void in
+          if (result != nil) {
+            contact.selected = true
+          }
+          
+          if abContacts.last!.isEqual(abContact) {
+            dispatch_async(dispatch_get_main_queue()) {
+              self.tableView.reloadData()
+            }
+          }
+
+        })
+      }
     }
   }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     self.refreshData()
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
     if nil == userId {
       self.performSegueWithIdentifier("capture_phone", sender: self)
