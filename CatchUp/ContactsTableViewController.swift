@@ -22,41 +22,46 @@ class ContactsTableViewController: UITableViewController {
   
   func refreshData() {
     self.memoryStorage.removeAllObjects()
-
-    let addressBook = AddressBook()
-    addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
-      abContacts.each { (abContact:AnyObject) -> Void in
-        var contact = Contact(fromContact:abContact as APContact)
-        self.memoryStorage.addObject(contact)
+    
+    var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
+    
+    User.query().getObjectInBackgroundWithId(userId, block: { (userResult:PFObject!, error:NSError!) -> Void in
+      var contactsQuery = userResult.relationForKey("contacts").query()
+      contactsQuery.findObjectsInBackgroundWithBlock({ (contactsResults:[AnyObject]!, error:NSError!) -> Void in
         
-        if abContacts.last!.isEqual(abContact) {
-          dispatch_async(dispatch_get_main_queue()) {
-            self.tableView.reloadData()
+        let addressBook = AddressBook()
+        addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
+          abContacts.each { (abContact:AnyObject) -> Void in
+            var contact = Contact(fromContact:abContact as APContact)
+            self.memoryStorage.addObject(contact)
+            
+            var isSelected = contactsResults.reduce(false, combine: { (mem:Bool, contactResult:AnyObject) -> Bool in
+              let contactResultContactId = contactResult["contact_id"]
+              var isSelected = abContact.phones!.reduce(false, combine: { (mem:Bool, apContactPhone:AnyObject!) -> Bool in
+                var isSelected = (apContactPhone as NSString).SHA1() == (contactResultContactId as NSString)
+                if isSelected {
+                  return true
+                }
+                return mem
+              })
+              
+              if isSelected {
+                return true
+              }
+              return mem
+            })
+            
+            contact.selected = isSelected
+            
+            if abContacts.last!.isEqual(abContact) {
+              dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+              }
+            }
           }
         }
-      }
-    }
-    
-//    var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-//    var userQuery = PFQuery(className: "User")
-//    userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
-//      let addressBook = AddressBook();
-//      addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
-//        for abContact in abContacts {
-//          var contact = Contact(fromContact:abContact as APContact)
-//          self.memoryStorage.addObject(contact)
-//          let contactId = abContact.phones?.first?.SHA1()
-//          ContactsStorage.isContactSelected(userId!, contactId:contactId!, completion: { (result:Bool) -> Void in
-//            contact.selected = result
-//            if abContacts.last!.isEqual(abContact) {
-//              dispatch_async(dispatch_get_main_queue()) {
-//                self.tableView.reloadData()
-//              }
-//            }
-//          })
-//        }
-//      }
-//    })
+      })
+    })
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
