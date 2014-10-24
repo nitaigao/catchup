@@ -3,14 +3,35 @@ import Foundation
 class AvailableTableViewController: UITableViewController {
   
   let memoryStorage : NSMutableArray = NSMutableArray()
+
+  var emptyViewController : UIViewController?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    var storyboard = UIStoryboard(name:"Main", bundle:nil)
+    self.emptyViewController = storyboard.instantiateViewControllerWithIdentifier("available_empty") as? UIViewController
+  }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.refreshData();
+    var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as String
+    ContactsStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
+      dispatch_async(dispatch_get_main_queue()) {
+        self.memoryStorage.removeAllObjects()
+        self.memoryStorage.addObjectsFromArray(mutualContacts)
+        self.tableView.reloadData()
+      }
+    })
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.memoryStorage.count;
+    let count = self.memoryStorage.count;
+    if count <= 0 {
+      self.view.addSubview(self.emptyViewController!.view)
+    } else {
+      self.emptyViewController!.view.removeFromSuperview()
+    }
+    return count;
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -21,15 +42,4 @@ class AvailableTableViewController: UITableViewController {
     return cell;
   }
   
-  func refreshData() {
-    self.memoryStorage.removeAllObjects()
-    
-    var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as String
-    ContactsStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
-      self.memoryStorage.addObjectsFromArray(mutualContacts)
-      dispatch_async(dispatch_get_main_queue()) {
-        self.tableView.reloadData()
-      }
-    })
-  }
 }

@@ -4,8 +4,8 @@ class ContactsTableViewController: UITableViewController {
   
   let memoryStorage : NSMutableArray = NSMutableArray()
   
-  override func viewWillAppear(animated:Bool) {
-    super.viewWillAppear(animated)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     self.refreshData()
   }
   

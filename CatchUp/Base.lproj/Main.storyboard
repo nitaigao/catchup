@@ -37,7 +37,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLI-98-asy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2867" y="833"/>
+            <point key="canvasLocation" x="-3051" y="1736"/>
         </scene>
         <!--Available-->
         <scene sceneID="jQt-9M-LEQ">
@@ -74,7 +74,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcd-8G-SiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2867" y="1514"/>
+            <point key="canvasLocation" x="-3051" y="2417"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ifZ-N4-5B4">
+            <objects>
+                <viewController storyboardIdentifier="available_empty" id="qX9-6y-7Cg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9yf-Sx-Zm1"/>
+                        <viewControllerLayoutGuide type="bottom" id="UCO-zK-6gl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sBA-CN-cYb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Catchups Yet :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdW-sw-hEn">
+                                <rect key="frame" x="228" y="240" width="144" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="IdW-sw-hEn" secondAttribute="centerX" id="M3k-q6-pcw"/>
+                            <constraint firstAttribute="centerY" secondItem="IdW-sw-hEn" secondAttribute="centerY" constant="50" id="bfU-X1-po5"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ll1-CE-Qkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2335" y="2494"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Zz-y8-MDo">
@@ -134,7 +165,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t55-Yv-dM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3731" y="1279"/>
+            <point key="canvasLocation" x="-3871" y="2070"/>
         </scene>
         <!--Catch Up-->
         <scene sceneID="F3A-rD-O0U">
@@ -160,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNU-sc-k5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4123" y="2057"/>
+            <point key="canvasLocation" x="-4531" y="2077"/>
         </scene>
         <!--Capture Phone Number View Controller-->
         <scene sceneID="LGN-6B-Xrf">
@@ -236,6 +267,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S38-5z-OOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4531" y="549"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZFB-xd-Hcl">
+            <objects>
+                <viewController storyboardIdentifier="available_loading" id="zTo-Fz-mE1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x3m-Gw-04v"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Qy-I0-2k0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PGL-ba-fl7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Catchups..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYd-mr-uby">
+                                <rect key="frame" x="223" y="240" width="155" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="hYd-mr-uby" secondAttribute="centerY" constant="50" id="BR8-ay-3na"/>
+                            <constraint firstAttribute="centerX" secondItem="hYd-mr-uby" secondAttribute="centerX" id="wEm-ZJ-mZS"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ql-CX-GpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1639" y="2494"/>
         </scene>
     </scenes>
 </document>
