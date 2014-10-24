@@ -27,41 +27,14 @@ class AvailableTableViewController: UITableViewController {
   func refreshData() {
     self.memoryStorage.removeAllObjects()
     
-    var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as? String
-
-    var query = PFQuery(className: "Contact")
-    query.whereKey("contact_id", equalTo: phoneId)
-    query.findObjectsInBackgroundWithBlock { (contactResults:[AnyObject]!, error:NSError!) -> Void in
-      for contactResult in contactResults {
-        
-        var userQuery = PFQuery(className: "User")
-        userQuery.whereKey("contacts", equalTo: contactResult)
-        userQuery.getFirstObjectInBackgroundWithBlock({ (userResult:PFObject!, error:NSError!) -> Void in
-          let userPhoneId = userResult["phone_id"] as NSString
-          
-          var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
-          var user = PFQuery.getObjectOfClass("User", objectId: userId)
-          var pfContacts = user.relationForKey("contacts")
-          
-          let addressBook = AddressBook()
-          addressBook.findContactsWithPhoneId(userPhoneId, completion: { (results:[APContact]) -> Void in
-            for result in results {
-              let contactStorage = ContactsStorage()
-              contactStorage.isContactSelected(userId, contactId: userPhoneId, completion: { (isSelected:Bool) -> Void in
-                if isSelected {
-                  self.memoryStorage.addObject(result)
-                }
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                  self.tableView.reloadData()
-                }
-              })
-            }
-          })
-        })
+    let contactStorage = ContactsStorage()
+    var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as String
+    contactStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
+      self.memoryStorage.addObjectsFromArray(mutualContacts)
+      dispatch_async(dispatch_get_main_queue()) {
+        self.tableView.reloadData()
       }
-      
-    }
+    })
   }
 
   override func viewDidAppear(animated: Bool) {
