@@ -15,12 +15,6 @@ class AddressBook {
     
     addressBook.loadContacts { (contacts:[AnyObject]!, error:NSError!) -> Void in
       completion(contacts as [APContact])
-//      var names = contacts.map({ (contact:AnyObject) -> String in
-//        let abContact = contact as APContact
-//        let name = abContact.firstName + " " + abContact.lastName
-//        return name;
-//      })
-//      completion(names)
     }
   }
   

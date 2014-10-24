@@ -1,16 +1,13 @@
 import Foundation
 
-extension Array{
-  func each(each: (T) -> ()){
-    for object: T in self {
-      each(object)
-    }
-  }
-}
-
 class AvailableTableViewController: UITableViewController {
   
   let memoryStorage : NSMutableArray = NSMutableArray()
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.refreshData();
+  }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.memoryStorage.count;
@@ -27,18 +24,12 @@ class AvailableTableViewController: UITableViewController {
   func refreshData() {
     self.memoryStorage.removeAllObjects()
     
-    let contactStorage = ContactsStorage()
     var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as String
-    contactStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
+    ContactsStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
       self.memoryStorage.addObjectsFromArray(mutualContacts)
       dispatch_async(dispatch_get_main_queue()) {
         self.tableView.reloadData()
       }
     })
-  }
-
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    self.refreshData();
   }
 }
