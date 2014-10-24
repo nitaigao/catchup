@@ -45,15 +45,28 @@ class ContactsStorage {
     var query = PFQuery(className: "Contact")
     query.whereKey("contact_id", equalTo: phoneId)
     query.findObjectsInBackgroundWithBlock { (contactResults:[AnyObject]!, error:NSError!) -> Void in
-      contactResults.each { (contactResult:AnyObject) -> () in
+        if nil != error {
+          mutualContactsCompletion([])
+          return
+        }
+        contactResults.each { (contactResult:AnyObject) -> () in
         var userQuery = PFQuery(className: "User")
         userQuery.whereKey("contacts", equalTo: contactResult)
         userQuery.getFirstObjectInBackgroundWithBlock({ (userResult:PFObject!, error:NSError!) -> Void in
+          if nil != error {
+            mutualContactsCompletion([])
+            return
+          }
+          
           let userPhoneId = userResult["phone_id"] as NSString
           
           var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
           var userQuery = PFQuery(className: "User")
           userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+            if nil != error {
+              mutualContactsCompletion([])
+              return
+            }
             var pfContacts = user.relationForKey("contacts")
             
             let addressBook = AddressBook()
