@@ -14,13 +14,15 @@ class ContactsStorage {
   }
   
   func selectContact(userId:String, contactId:String) {
-    var user = PFQuery.getObjectOfClass("User", objectId: userId)
-    var contacts = user.relationForKey("contacts")
-    var contact = PFObject(className: "Contact")
-    contact["contact_id"] = contactId
-    contact.saveEventually({ (result:Bool, error:NSError!) -> Void in
-      contacts.addObject(contact)
-      user.saveEventually()
+    var userQuery = PFQuery(className: "User")
+    userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+      var contacts = user.relationForKey("contacts")
+      var contact = PFObject(className: "Contact")
+      contact["contact_id"] = contactId
+      contact.saveEventually({ (result:Bool, error:NSError!) -> Void in
+        contacts.addObject(contact)
+        user.saveEventually()
+      })
     })
   }
   
@@ -46,23 +48,25 @@ class ContactsStorage {
           let userPhoneId = userResult["phone_id"] as NSString
           
           var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
-          var user = PFQuery.getObjectOfClass("User", objectId: userId)
-          var pfContacts = user.relationForKey("contacts")
-          
-          let addressBook = AddressBook()
-          addressBook.findContactsWithPhoneId(userPhoneId, completion: { (contactResults:[APContact]) -> Void in
-            var selectedContacts = NSMutableArray()
-            contactResults.each { (contactResult:APContact) -> () in
-              self.isContactSelected(userId, contactId: userPhoneId, completion: { (isSelected:Bool) -> Void in
-                if isSelected {
-                  selectedContacts.addObject(contactResult)
-                }
-                
-                if contactResult.isEqual(contactResults.last) {
-                 mutualContactsCompletion(selectedContacts)
-                }
-              })
-            }
+          var userQuery = PFQuery(className: "User")
+          userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+            var pfContacts = user.relationForKey("contacts")
+            
+            let addressBook = AddressBook()
+            addressBook.findContactsWithPhoneId(userPhoneId, completion: { (contactResults:[APContact]) -> Void in
+              var selectedContacts = NSMutableArray()
+              contactResults.each { (contactResult:APContact) -> () in
+                self.isContactSelected(userId, contactId: userPhoneId, completion: { (isSelected:Bool) -> Void in
+                  if isSelected {
+                    selectedContacts.addObject(contactResult)
+                  }
+                  
+                  if contactResult.isEqual(contactResults.last) {
+                   mutualContactsCompletion(selectedContacts)
+                  }
+                })
+              }
+            })
           })
         })
       }
@@ -92,24 +96,25 @@ class ContactsTableViewController: UITableViewController {
     let contactStorage = ContactsStorage()
     
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-    var user = PFQuery.getObjectOfClass("User", objectId: userId)
-    
-    let addressBook = AddressBook();
-    addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
-      for abContact in abContacts {
-        var contact = Contact(fromContact:abContact as APContact)
-        self.memoryStorage.addObject(contact)
-        let contactId = abContact.phones?.first?.SHA1()
-        contactStorage.isContactSelected(userId!, contactId:contactId!, completion: { (result:Bool) -> Void in
-          contact.selected = result
-          if abContacts.last!.isEqual(abContact) {
-            dispatch_async(dispatch_get_main_queue()) {
-              self.tableView.reloadData()
+    var userQuery = PFQuery(className: "User")
+    userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+      let addressBook = AddressBook();
+      addressBook.findAllContactsWithFullNames { (abContacts:[AnyObject]!) -> Void in
+        for abContact in abContacts {
+          var contact = Contact(fromContact:abContact as APContact)
+          self.memoryStorage.addObject(contact)
+          let contactId = abContact.phones?.first?.SHA1()
+          contactStorage.isContactSelected(userId!, contactId:contactId!, completion: { (result:Bool) -> Void in
+            contact.selected = result
+            if abContacts.last!.isEqual(abContact) {
+              dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+              }
             }
-          }
-        })
+          })
+        }
       }
-    }
+    })
   }
   
   override func viewDidLoad() {
