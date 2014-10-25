@@ -1,5 +1,11 @@
 import Foundation
 
+extension String {
+  subscript (i: Int) -> String {
+    return String(Array(self)[i])
+  }
+}
+
 class CapturePhoneNumberViewController: UIViewController {
   var delegate : ContactsTableViewController?
   
@@ -13,9 +19,10 @@ class CapturePhoneNumberViewController: UIViewController {
     installation.channels = [channelName]
     installation.saveInBackgroundWithBlock(nil)
     
-    var user = PFObject(className: "User")
-    user["phone_id"] = phoneId
-    user.saveInBackgroundWithBlock { (ok:Bool, error:NSError!) -> Void in
+    var user = PFUser()
+    user.username = phoneId
+    user.password = NSUUID().UUIDString.SHA1()
+    user.signUpInBackgroundWithBlock { (ok:Bool, error:NSError!) -> Void in
       NSUserDefaults.standardUserDefaults().setObject(user.objectId, forKey:"user_id")
       NSUserDefaults.standardUserDefaults().setObject(phoneId, forKey:"phone_id")
       self.delegate?.refreshData()

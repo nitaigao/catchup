@@ -12,8 +12,8 @@ class BootViewController: UIViewController {
       return
     }
     
-    var query = PFQuery(className: "User")
-    query.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+  
+    PFUser.query().getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
       if nil == user {
         self.performSegueWithIdentifier("capture_phone", sender: self)
         return

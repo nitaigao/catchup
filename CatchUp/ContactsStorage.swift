@@ -2,8 +2,7 @@ import Foundation
 
 class ContactsStorage {
   class func isContactSelected(userId:String, contactId:String, completion:(Bool)->Void) {
-    var userQuery = PFQuery(className: "User")
-    userQuery.getObjectInBackgroundWithId(userId, { (user:PFObject!, error:NSError!) -> Void in
+    PFUser.query().getObjectInBackgroundWithId(userId, { (user:PFObject!, error:NSError!) -> Void in
       if nil != error {
         completion(false)
         return
@@ -18,24 +17,20 @@ class ContactsStorage {
   }
   
   class func selectContact(userId:String, contactId:String) {
-    var userQuery = PFQuery(className: "User")
-    userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+    PFUser.query().getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
       var contacts = user.relationForKey("contacts")
       var contact = PFObject(className: "Contact")
       contact["contact_id"] = contactId
       contact.saveEventually({ (result:Bool, error:NSError!) -> Void in
         contacts.addObject(contact)
         user.saveEventually()
-        
-        var phoneId = user["phone_id"] as String
-        PFCloud.callFunctionInBackground("catchup_requested", withParameters:["user_id":phoneId, "contact_id":contactId], block: nil)
+        PFCloud.callFunctionInBackground("catchup_requested", withParameters:["user_id":userId, "contact_id":contactId], block: nil)
       })
     })
   }
   
   class func deselectContact(userId:String, contactId:String) {
-    var query = PFQuery(className: "User")
-    query.getObjectInBackgroundWithId(userId, block: { (result:PFObject!, error:NSError!) -> Void in
+    PFUser.query().getObjectInBackgroundWithId(userId, block: { (result:PFObject!, error:NSError!) -> Void in
       var contacts = result.relationForKey("contacts")
       contacts.query().whereKey("contact_id", equalTo:contactId)
       contacts.query().getFirstObjectInBackgroundWithBlock({ (result:PFObject!, error:NSError!) -> Void in
@@ -60,7 +55,7 @@ class ContactsStorage {
           return
         }
         contactResults.each { (contactResult:AnyObject) -> () in
-        var userQuery = PFQuery(className: "User")
+        var userQuery = PFUser.query()
         userQuery.whereKey("contacts", equalTo: contactResult)
         userQuery.getFirstObjectInBackgroundWithBlock({ (userResult:PFObject!, error:NSError!) -> Void in
           if nil != error {
@@ -68,10 +63,10 @@ class ContactsStorage {
             return
           }
           
-          let userPhoneId = userResult["phone_id"] as NSString
+          let userPhoneId = userResult["username"] as NSString
           
           var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
-          var userQuery = PFQuery(className: "User")
+          var userQuery = PFUser.query()
           userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
             if nil != error {
               mutualContactsCompletion([])
