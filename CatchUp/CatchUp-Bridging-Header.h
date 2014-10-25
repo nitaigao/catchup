@@ -3,6 +3,8 @@
 
 #import <Parse/Parse.h>
 
+#include <AddressBookUI/AddressBookUI.h>
+
 #include <APAddressBook/APAddressBook.h>
 
 #import "APAddressBook.h"
@@ -12,7 +14,6 @@
 
 #import <NSHash/NSString+NSHash.h>
 
-#import <DTTableViewManager/DTTableViewController.h>
-#import <DTTableViewManager/DTTableViewCell.h>
+#import "NBPhoneNumberUtil.h"
 
 #endif

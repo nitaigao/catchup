@@ -15,7 +15,7 @@ class ContactsTableViewCell: UITableViewCell {
   
   func updateWithModel(model: Contact) {
     contact = model
-    self.textLabel?.text = model.contact!.firstName + " " + model.contact!.lastName
+    self.textLabel.text = model.contact!.firstName + " " + model.contact!.lastName
     self.accessoryType = model.selected ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
   }
 }

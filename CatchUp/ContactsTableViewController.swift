@@ -38,7 +38,8 @@ class ContactsTableViewController: UITableViewController {
             var isSelected = contactsResults.reduce(false, combine: { (mem:Bool, contactResult:AnyObject) -> Bool in
               let contactResultContactId = contactResult["contact_id"]
               var isSelected = abContact.phones!.reduce(false, combine: { (mem:Bool, apContactPhone:AnyObject!) -> Bool in
-                var isSelected = (apContactPhone as NSString).SHA1() == (contactResultContactId as NSString)
+                var apContactPhoneId = ContactsStorage.phoneId(apContactPhone)
+                var isSelected = apContactPhoneId == (contactResultContactId as NSString)
                 if isSelected {
                   return true
                 }
@@ -71,11 +72,12 @@ class ContactsTableViewController: UITableViewController {
   
     var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
     var firstPhone = cell.contact?.contact?.phones.first as String
+    var contactId = ContactsStorage.phoneId(firstPhone)
     
     if cell.contact!.selected {
-      ContactsStorage.selectContact(userId, contactId:firstPhone.SHA1())
+      ContactsStorage.selectContact(userId, contactId:contactId)
     } else {
-      ContactsStorage.deselectContact(userId, contactId:firstPhone.SHA1())
+      ContactsStorage.deselectContact(userId, contactId:contactId)
     }
     
     cell.selected = false

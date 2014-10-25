@@ -6,7 +6,13 @@ class CapturePhoneNumberViewController: UIViewController {
   @IBOutlet var phoneNumberTextField : UITextField!
   
   @IBAction func saveNumber() {
-    var phoneId = (phoneNumberTextField.text as NSString).SHA1()
+    var phoneId = ContactsStorage.phoneId(phoneNumberTextField.text)
+    println(phoneId)
+    
+    var installation = PFInstallation.currentInstallation()
+    installation.channels = [phoneId]
+    installation.saveEventually()
+    
     var user = PFObject(className: "User")
     user["phone_id"] = phoneId
     user.saveInBackgroundWithBlock { (ok:Bool, error:NSError!) -> Void in

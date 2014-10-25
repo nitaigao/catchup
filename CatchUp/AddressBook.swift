@@ -5,7 +5,7 @@ class AddressBook {
     let addressBook = APAddressBook()
     addressBook.filterBlock = {(apContact: APContact!) -> Bool in
       return apContact.phones.reduce(false, combine: { (mem:Bool, phone:AnyObject) -> Bool in
-        var apContactId = phone.SHA1() as NSString
+        var apContactId = ContactsStorage.phoneId(phone) as NSString
         if apContactId.isEqualToString(phoneId) {
           return true
         }

@@ -42,4 +42,11 @@ class AvailableTableViewController: UITableViewController {
     return cell;
   }
   
+//  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//    var contact = self.memoryStorage.objectAtIndex(indexPath.row) as APContact
+//    var personViewController = ABPersonViewController()
+//    personViewController.displayedPerson = contact
+//    self.presentViewController(personViewController, animated: true, completion: nil)
+//  }
+  
 }

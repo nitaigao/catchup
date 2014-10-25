@@ -41,6 +41,13 @@ class ContactsStorage {
     })
   }
   
+  class func phoneId(phoneNumber:AnyObject) -> String {
+    var numberFormatter = NBPhoneNumberUtil.sharedInstance()
+    var normalizedNumber = numberFormatter.normalizePhoneNumber(phoneNumber as String)
+    var contactId = normalizedNumber.SHA1()
+    return contactId;
+  }
+  
   class func mutualContacts(phoneId:String, mutualContactsCompletion:([AnyObject]!) -> Void) {
     var query = PFQuery(className: "Contact")
     query.whereKey("contact_id", equalTo: phoneId)

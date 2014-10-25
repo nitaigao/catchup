@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C08C1BB19FA973400EB0C4A /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C08C1BA19FA973400EB0C4A /* AddressBookUI.framework */; };
 		4C1BCE6719FA426600F4748C /* PushNoAnimationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BCE6619FA426600F4748C /* PushNoAnimationSegue.swift */; };
 		4C40299A19F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40299919F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift */; };
 		4C40299C19F44B670095DEB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40299B19F44B670095DEB4 /* Parse.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C08C1BA19FA973400EB0C4A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		4C1BCE6619FA426600F4748C /* PushNoAnimationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNoAnimationSegue.swift; sourceTree = "<group>"; };
 		4C40299819F4385C0095DEB4 /* CatchUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		4C40299919F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePhoneNumberViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C08C1BB19FA973400EB0C4A /* AddressBookUI.framework in Frameworks */,
 				4C40299E19F44BD40095DEB4 /* StoreKit.framework in Frameworks */,
 				4C4029B019F44C0C0095DEB4 /* Security.framework in Frameworks */,
 				4C4029AE19F44C080095DEB4 /* QuartzCore.framework in Frameworks */,
@@ -262,6 +265,7 @@
 		90A9143F7CA321A2F10AB167 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C08C1BA19FA973400EB0C4A /* AddressBookUI.framework */,
 				4C4029AF19F44C0C0095DEB4 /* Security.framework */,
 				4C4029AD19F44C080095DEB4 /* QuartzCore.framework */,
 				4C4029AB19F44C010095DEB4 /* MobileCoreServices.framework */,
