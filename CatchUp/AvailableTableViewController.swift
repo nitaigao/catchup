@@ -10,10 +10,25 @@ class AvailableTableViewController: UITableViewController {
     super.viewDidLoad()
     var storyboard = UIStoryboard(name:"Main", bundle:nil)
     self.emptyViewController = storyboard.instantiateViewControllerWithIdentifier("available_empty") as? UIViewController
+
+    NSNotificationCenter.defaultCenter().addObserver(self, selector:"appCameToForeground:", name:UIApplicationWillEnterForegroundNotification, object:nil);
+    NSNotificationCenter.defaultCenter().addObserver(self, selector:"receivedContactNotification:", name:"received_contact_notification", object:nil);
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    self.refreshData()
+  }
+  
+  func receivedContactNotification(notification: NSNotification) {
+    self.refreshData()
+  }
+  
+  func appCameToForeground(notification: NSNotification) {
+    self.refreshData()
+  }
+  
+  func refreshData() {
     var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as String
     ContactsStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
       dispatch_async(dispatch_get_main_queue()) {

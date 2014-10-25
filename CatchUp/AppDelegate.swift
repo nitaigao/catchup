@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     PFPush.handlePush(userInfo)
+    NSNotificationCenter.defaultCenter().postNotificationName("received_contact_notification", object:nil)
   }
 
   func applicationWillResignActive(application: UIApplication) {

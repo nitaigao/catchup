@@ -11,7 +11,7 @@ class CapturePhoneNumberViewController: UIViewController {
     var installation = PFInstallation.currentInstallation()
     var channelName = "c" + phoneId
     installation.channels = [channelName]
-    installation.save()
+    installation.saveInBackgroundWithBlock(nil)
     
     var user = PFObject(className: "User")
     user["phone_id"] = phoneId

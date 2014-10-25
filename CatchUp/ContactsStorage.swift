@@ -26,6 +26,9 @@ class ContactsStorage {
       contact.saveEventually({ (result:Bool, error:NSError!) -> Void in
         contacts.addObject(contact)
         user.saveEventually()
+        
+        var phoneId = user["phone_id"] as String
+        PFCloud.callFunctionInBackground("catchup_requested", withParameters:["user_id":phoneId, "contact_id":contactId], block: nil)
       })
     })
   }
@@ -52,7 +55,7 @@ class ContactsStorage {
     var query = PFQuery(className: "Contact")
     query.whereKey("contact_id", equalTo: phoneId)
     query.findObjectsInBackgroundWithBlock { (contactResults:[AnyObject]!, error:NSError!) -> Void in
-        if nil != error {
+        if contactResults.count <= 0 || nil != error {
           mutualContactsCompletion([])
           return
         }
