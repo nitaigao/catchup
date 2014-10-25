@@ -7,11 +7,11 @@ class CapturePhoneNumberViewController: UIViewController {
   
   @IBAction func saveNumber() {
     var phoneId = ContactsStorage.phoneId(phoneNumberTextField.text)
-    println(phoneId)
     
     var installation = PFInstallation.currentInstallation()
-    installation.channels = [phoneId]
-    installation.saveEventually()
+    var channelName = "c" + phoneId
+    installation.channels = [channelName]
+    installation.save()
     
     var user = PFObject(className: "User")
     user["phone_id"] = phoneId
