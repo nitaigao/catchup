@@ -65,9 +65,8 @@ class ContactsStorage {
           
           let userPhoneId = userResult["username"] as NSString
           
-          var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
           var userQuery = PFUser.query()
-          userQuery.getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+          userQuery.getObjectInBackgroundWithId(Settings.userId, block: { (user:PFObject!, error:NSError!) -> Void in
             if nil != error {
               mutualContactsCompletion([])
               return
@@ -78,7 +77,7 @@ class ContactsStorage {
             addressBook.findContactsWithPhoneId(userPhoneId, completion: { (contactResults:[APContact]) -> Void in
               var selectedContacts = NSMutableArray()
               contactResults.each { (contactResult:APContact) -> () in
-                self.isContactSelected(userId, contactId: userPhoneId, completion: { (isSelected:Bool) -> Void in
+                self.isContactSelected(Settings.userId, contactId: userPhoneId, completion: { (isSelected:Bool) -> Void in
                   if isSelected {
                     selectedContacts.addObject(contactResult)
                   }

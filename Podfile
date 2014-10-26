@@ -7,6 +7,7 @@ target 'CatchUp' do
 	pod 'APAddressBook'
   pod 'NSHash', '~> 1.0.1'
   pod 'libPhoneNumber-iOS', '~> 0.7'
+  pod 'vCardSerialization'
 end
 
 target 'CatchUpTests' do

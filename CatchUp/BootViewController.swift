@@ -4,8 +4,8 @@ class BootViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-    var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as? String
+    var userId = Settings.objectForKey("user_id") as? String
+    var phoneId = Settings.objectForKey("phone_id") as? String
     
     if nil == userId || nil == phoneId {
       self.performSegueWithIdentifier("capture_phone", sender: self)

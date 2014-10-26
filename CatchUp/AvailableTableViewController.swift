@@ -29,8 +29,7 @@ class AvailableTableViewController: UITableViewController {
   }
   
   func refreshData() {
-    var phoneId = NSUserDefaults.standardUserDefaults().objectForKey("phone_id") as String
-    ContactsStorage.mutualContacts(phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
+    ContactsStorage.mutualContacts(Settings.phoneId, mutualContactsCompletion: { (mutualContacts:[AnyObject]!) -> Void in
       dispatch_async(dispatch_get_main_queue()) {
         self.memoryStorage.removeAllObjects()
         self.memoryStorage.addObjectsFromArray(mutualContacts)

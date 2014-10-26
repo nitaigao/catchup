@@ -23,9 +23,7 @@ class ContactsTableViewController: UITableViewController {
   func refreshData() {
     self.memoryStorage.removeAllObjects()
     
-    var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as? String
-    
-    User.query().getObjectInBackgroundWithId(userId, block: { (userResult:PFObject!, error:NSError!) -> Void in
+    User.query().getObjectInBackgroundWithId(Settings.userId, block: { (userResult:PFObject!, error:NSError!) -> Void in
       var contactsQuery = userResult.relationForKey("contacts").query()
       contactsQuery.findObjectsInBackgroundWithBlock({ (contactsResults:[AnyObject]!, error:NSError!) -> Void in
         
@@ -70,14 +68,13 @@ class ContactsTableViewController: UITableViewController {
     
     cell.toggleSelection()
   
-    var userId = NSUserDefaults.standardUserDefaults().objectForKey("user_id") as String
     var firstPhone = cell.contact?.contact?.phones.first as String
     var contactId = ContactsStorage.phoneId(firstPhone)
     
     if cell.contact!.selected {
-      ContactsStorage.selectContact(userId, contactId:contactId)
+      ContactsStorage.selectContact(Settings.userId, contactId:contactId)
     } else {
-      ContactsStorage.deselectContact(userId, contactId:contactId)
+      ContactsStorage.deselectContact(Settings.userId, contactId:contactId)
     }
     
     cell.selected = false

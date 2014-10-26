@@ -22,6 +22,18 @@
 		4C4029AE19F44C080095DEB4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029AD19F44C080095DEB4 /* QuartzCore.framework */; };
 		4C4029B019F44C0C0095DEB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029AF19F44C0C0095DEB4 /* Security.framework */; };
 		4C4029B219F44C240095DEB4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029B119F44C240095DEB4 /* Bolts.framework */; };
+		4C517A7D19FD5088001613AA /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A7C19FD5088001613AA /* ActionViewController.swift */; };
+		4C517A7F19FD5088001613AA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C517A7E19FD5088001613AA /* MainInterface.storyboard */; };
+		4C517A8219FD5088001613AA /* SendTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C517A7819FD5088001613AA /* SendTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4C517A8819FD56C3001613AA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A8719FD56C3001613AA /* AddressBook.framework */; };
+		4C517A8D19FD68A2001613AA /* libPods-CatchUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A8C19FD68A2001613AA /* libPods-CatchUp.a */; };
+		4C517A9219FD68E0001613AA /* libPods-CatchUp-APAddressBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A8E19FD68E0001613AA /* libPods-CatchUp-APAddressBook.a */; };
+		4C517A9319FD68E0001613AA /* libPods-CatchUp-libPhoneNumber-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A8F19FD68E0001613AA /* libPods-CatchUp-libPhoneNumber-iOS.a */; };
+		4C517A9419FD68E0001613AA /* libPods-CatchUp-NSHash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A9019FD68E0001613AA /* libPods-CatchUp-NSHash.a */; };
+		4C517A9519FD68E0001613AA /* libPods-CatchUp-vCardSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A9119FD68E0001613AA /* libPods-CatchUp-vCardSerialization.a */; };
+		4C517A9719FD6903001613AA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A9619FD6903001613AA /* CoreTelephony.framework */; };
+		4C517A9A19FD6E2A001613AA /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A9919FD6E2A001613AA /* Hash.m */; };
+		4C517A9C19FD70C5001613AA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A9B19FD70C5001613AA /* Settings.swift */; };
 		4C966C2A19F58E8F00A03660 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */; };
 		4C9ED5A319F5958000B3A895 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */; };
 		4CB2255E19F6A83600D8814A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2255D19F6A83600D8814A /* Contact.swift */; };
@@ -42,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4C517A8019FD5088001613AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CCD3DD819F4345A0055CE58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C517A7719FD5088001613AA;
+			remoteInfo = SendTo;
+		};
 		4CCD3DF619F4345A0055CE58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CCD3DD819F4345A0055CE58 /* Project object */;
@@ -50,6 +69,20 @@
 			remoteInfo = CatchUp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C517A8619FD5088001613AA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4C517A8219FD5088001613AA /* SendTo.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4C08C1BA19FA973400EB0C4A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
@@ -68,6 +101,24 @@
 		4C4029AD19F44C080095DEB4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4C4029AF19F44C0C0095DEB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4C4029B119F44C240095DEB4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4C517A7819FD5088001613AA /* SendTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SendTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C517A7B19FD5088001613AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C517A7C19FD5088001613AA /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		4C517A7E19FD5088001613AA /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		4C517A8719FD56C3001613AA /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		4C517A8919FD5723001613AA /* CatchUpSendTo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchUpSendTo-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C517A8A19FD6895001613AA /* libPods-CatchUp-NSHash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CatchUp-NSHash.a"; path = "Pods/build/Debug-iphoneos/libPods-CatchUp-NSHash.a"; sourceTree = "<group>"; };
+		4C517A8C19FD68A2001613AA /* libPods-CatchUp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CatchUp.a"; path = "Pods/build/Debug-iphoneos/libPods-CatchUp.a"; sourceTree = "<group>"; };
+		4C517A8E19FD68E0001613AA /* libPods-CatchUp-APAddressBook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CatchUp-APAddressBook.a"; path = "Pods/build/Debug-iphoneos/libPods-CatchUp-APAddressBook.a"; sourceTree = "<group>"; };
+		4C517A8F19FD68E0001613AA /* libPods-CatchUp-libPhoneNumber-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CatchUp-libPhoneNumber-iOS.a"; path = "Pods/build/Debug-iphoneos/libPods-CatchUp-libPhoneNumber-iOS.a"; sourceTree = "<group>"; };
+		4C517A9019FD68E0001613AA /* libPods-CatchUp-NSHash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CatchUp-NSHash.a"; path = "Pods/build/Debug-iphoneos/libPods-CatchUp-NSHash.a"; sourceTree = "<group>"; };
+		4C517A9119FD68E0001613AA /* libPods-CatchUp-vCardSerialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CatchUp-vCardSerialization.a"; path = "Pods/build/Debug-iphoneos/libPods-CatchUp-vCardSerialization.a"; sourceTree = "<group>"; };
+		4C517A9619FD6903001613AA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4C517A9819FD6E1A001613AA /* Hash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hash.h; sourceTree = "<group>"; };
+		4C517A9919FD6E2A001613AA /* Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hash.m; sourceTree = "<group>"; };
+		4C517A9B19FD70C5001613AA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4C517A9D19FD71A3001613AA /* CatchUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CatchUp.entitlements; sourceTree = "<group>"; };
+		4C517A9E19FD71BC001613AA /* SendTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SendTo.entitlements; sourceTree = "<group>"; };
 		4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		4CB2255D19F6A83600D8814A /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -94,6 +145,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4C517A7519FD5088001613AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C517A9719FD6903001613AA /* CoreTelephony.framework in Frameworks */,
+				4C517A9219FD68E0001613AA /* libPods-CatchUp-APAddressBook.a in Frameworks */,
+				4C517A9319FD68E0001613AA /* libPods-CatchUp-libPhoneNumber-iOS.a in Frameworks */,
+				4C517A9419FD68E0001613AA /* libPods-CatchUp-NSHash.a in Frameworks */,
+				4C517A9519FD68E0001613AA /* libPods-CatchUp-vCardSerialization.a in Frameworks */,
+				4C517A8D19FD68A2001613AA /* libPods-CatchUp.a in Frameworks */,
+				4C517A8819FD56C3001613AA /* AddressBook.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CCD3DDD19F4345A0055CE58 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +215,7 @@
 				4CC0A78119F8EADF006D2BC3 /* AddressBook.swift */,
 				4CBAFA3B19FA4977005355A3 /* User.swift */,
 				4CBAFA3D19FA4DB3005355A3 /* ContactsStorage.swift */,
+				4C517A9B19FD70C5001613AA /* Settings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,6 +236,28 @@
 			name = Segues;
 			sourceTree = "<group>";
 		};
+		4C517A7919FD5088001613AA /* SendTo */ = {
+			isa = PBXGroup;
+			children = (
+				4C517A9E19FD71BC001613AA /* SendTo.entitlements */,
+				4C517A7C19FD5088001613AA /* ActionViewController.swift */,
+				4C517A7E19FD5088001613AA /* MainInterface.storyboard */,
+				4C517A7A19FD5088001613AA /* Supporting Files */,
+				4C517A8919FD5723001613AA /* CatchUpSendTo-Bridging-Header.h */,
+				4C517A9819FD6E1A001613AA /* Hash.h */,
+				4C517A9919FD6E2A001613AA /* Hash.m */,
+			);
+			path = SendTo;
+			sourceTree = "<group>";
+		};
+		4C517A7A19FD5088001613AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C517A7B19FD5088001613AA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4CBAFA7119FA7372005355A3 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +271,7 @@
 			children = (
 				4CCD3DE219F4345A0055CE58 /* CatchUp */,
 				4CCD3DF819F4345A0055CE58 /* CatchUpTests */,
+				4C517A7919FD5088001613AA /* SendTo */,
 				4CCD3DE119F4345A0055CE58 /* Products */,
 				DE8CB243CC760F4DB2C098F8 /* Pods */,
 				90A9143F7CA321A2F10AB167 /* Frameworks */,
@@ -194,6 +283,7 @@
 			children = (
 				4CCD3DE019F4345A0055CE58 /* CatchUp.app */,
 				4CCD3DF519F4345A0055CE58 /* CatchUpTests.xctest */,
+				4C517A7819FD5088001613AA /* SendTo.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,6 +291,7 @@
 		4CCD3DE219F4345A0055CE58 /* CatchUp */ = {
 			isa = PBXGroup;
 			children = (
+				4C517A9D19FD71A3001613AA /* CatchUp.entitlements */,
 				4CBAFA7119FA7372005355A3 /* App */,
 				4C1BCE6519FA425500F4748C /* Segues */,
 				4CF7F91319FA3AD200508CD8 /* Extensions */,
@@ -265,6 +356,14 @@
 		90A9143F7CA321A2F10AB167 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C517A9619FD6903001613AA /* CoreTelephony.framework */,
+				4C517A8E19FD68E0001613AA /* libPods-CatchUp-APAddressBook.a */,
+				4C517A8F19FD68E0001613AA /* libPods-CatchUp-libPhoneNumber-iOS.a */,
+				4C517A9019FD68E0001613AA /* libPods-CatchUp-NSHash.a */,
+				4C517A9119FD68E0001613AA /* libPods-CatchUp-vCardSerialization.a */,
+				4C517A8C19FD68A2001613AA /* libPods-CatchUp.a */,
+				4C517A8A19FD6895001613AA /* libPods-CatchUp-NSHash.a */,
+				4C517A8719FD56C3001613AA /* AddressBook.framework */,
 				4C08C1BA19FA973400EB0C4A /* AddressBookUI.framework */,
 				4C4029AF19F44C0C0095DEB4 /* Security.framework */,
 				4C4029AD19F44C080095DEB4 /* QuartzCore.framework */,
@@ -293,6 +392,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4C517A7719FD5088001613AA /* SendTo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C517A8519FD5088001613AA /* Build configuration list for PBXNativeTarget "SendTo" */;
+			buildPhases = (
+				4C517A7419FD5088001613AA /* Sources */,
+				4C517A7519FD5088001613AA /* Frameworks */,
+				4C517A7619FD5088001613AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SendTo;
+			productName = SendTo;
+			productReference = 4C517A7819FD5088001613AA /* SendTo.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		4CCD3DDF19F4345A0055CE58 /* CatchUp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CCD3DFF19F4345A0055CE58 /* Build configuration list for PBXNativeTarget "CatchUp" */;
@@ -302,10 +418,12 @@
 				4CCD3DDD19F4345A0055CE58 /* Frameworks */,
 				4CCD3DDE19F4345A0055CE58 /* Resources */,
 				3ECBCB3A2535FB7A7D6131A9 /* Copy Pods Resources */,
+				4C517A8619FD5088001613AA /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4C517A8119FD5088001613AA /* PBXTargetDependency */,
 			);
 			name = CatchUp;
 			productName = CatchUp;
@@ -339,9 +457,23 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Nicholas Kostelnik";
 				TargetAttributes = {
+					4C517A7719FD5088001613AA = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = QQ6H83VL9N;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					4CCD3DDF19F4345A0055CE58 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = QQ6H83VL9N;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4CCD3DF419F4345A0055CE58 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -364,11 +496,20 @@
 			targets = (
 				4CCD3DDF19F4345A0055CE58 /* CatchUp */,
 				4CCD3DF419F4345A0055CE58 /* CatchUpTests */,
+				4C517A7719FD5088001613AA /* SendTo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C517A7619FD5088001613AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C517A7F19FD5088001613AA /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CCD3DDE19F4345A0055CE58 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +563,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4C517A7419FD5088001613AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C517A7D19FD5088001613AA /* ActionViewController.swift in Sources */,
+				4C517A9A19FD6E2A001613AA /* Hash.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CCD3DDC19F4345A0055CE58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,6 +585,7 @@
 				4C966C2A19F58E8F00A03660 /* ContactsTableViewController.swift in Sources */,
 				4CBAFA3E19FA4DB3005355A3 /* ContactsStorage.swift in Sources */,
 				4C1BCE6719FA426600F4748C /* PushNoAnimationSegue.swift in Sources */,
+				4C517A9C19FD70C5001613AA /* Settings.swift in Sources */,
 				4CF7F91219FA391400508CD8 /* BootViewController.swift in Sources */,
 				4CBAFA3C19FA4977005355A3 /* User.swift in Sources */,
 				4CC0A78219F8EADF006D2BC3 /* AddressBook.swift in Sources */,
@@ -454,6 +605,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4C517A8119FD5088001613AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C517A7719FD5088001613AA /* SendTo */;
+			targetProxy = 4C517A8019FD5088001613AA /* PBXContainerItemProxy */;
+		};
 		4CCD3DF719F4345A0055CE58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4CCD3DDF19F4345A0055CE58 /* CatchUp */;
@@ -481,6 +637,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4C517A8319FD5088001613AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B735488D24DF3C2B738E828 /* Pods-CatchUp.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SendTo/SendTo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"${PODS_ROOT}/Headers/Public/vCardSerialization\"",
+				);
+				INFOPLIST_FILE = SendTo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-l\"Pods-CatchUp-vCardSerialization\"";
+				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SendTo/CatchUpSendTo-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		4C517A8419FD5088001613AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B735488D24DF3C2B738E828 /* Pods-CatchUp.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SendTo/SendTo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"${PODS_ROOT}/Headers/Public/vCardSerialization\"",
+				);
+				INFOPLIST_FILE = SendTo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-l\"Pods-CatchUp-vCardSerialization\"";
+				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SendTo/CatchUpSendTo-Bridging-Header.h";
+			};
+			name = Release;
+		};
 		4CCD3DFD19F4345A0055CE58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -563,8 +779,10 @@
 			baseConfigurationReference = 4E2B0397CE1388E22528A05D /* Pods-CatchUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CatchUp/CatchUp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CatchUp",
@@ -572,7 +790,7 @@
 				INFOPLIST_FILE = CatchUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f01cb5c-34dc-4c9c-bd1a-e7b7816e922a";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CatchUp/CatchUp-Bridging-Header.h";
 			};
 			name = Debug;
@@ -582,8 +800,10 @@
 			baseConfigurationReference = 5B735488D24DF3C2B738E828 /* Pods-CatchUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CatchUp/CatchUp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CatchUp",
@@ -633,6 +853,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4C517A8519FD5088001613AA /* Build configuration list for PBXNativeTarget "SendTo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C517A8319FD5088001613AA /* Debug */,
+				4C517A8419FD5088001613AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CCD3DDB19F4345A0055CE58 /* Build configuration list for PBXProject "CatchUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

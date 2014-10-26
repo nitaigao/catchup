@@ -4,15 +4,18 @@ PODS:
   - APAddressBook/Core (0.1.4)
   - libPhoneNumber-iOS (0.7.3)
   - NSHash (1.0.1)
+  - vCardSerialization (0.0.1)
 
 DEPENDENCIES:
   - APAddressBook
   - libPhoneNumber-iOS (~> 0.7)
   - NSHash (~> 1.0.1)
+  - vCardSerialization
 
 SPEC CHECKSUMS:
   APAddressBook: 2b23557950065f8eb048e421dd4a18373f69949b
   libPhoneNumber-iOS: 98fc07d70c8fdb5e6a8e3442c37e97353065c20e
   NSHash: 757e3ba784954b730eae472f3f4e12eb79a18d82
+  vCardSerialization: 11f0968157ee113134a5884b21cc530edab25056
 
 COCOAPODS: 0.34.4

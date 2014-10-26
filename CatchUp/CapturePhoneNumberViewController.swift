@@ -23,8 +23,8 @@ class CapturePhoneNumberViewController: UIViewController {
     user.username = phoneId
     user.password = NSUUID().UUIDString.SHA1()
     user.signUpInBackgroundWithBlock { (ok:Bool, error:NSError!) -> Void in
-      NSUserDefaults.standardUserDefaults().setObject(user.objectId, forKey:"user_id")
-      NSUserDefaults.standardUserDefaults().setObject(phoneId, forKey:"phone_id")
+      Settings.userId = user.objectId
+      Settings.phoneId = phoneId
       self.delegate?.refreshData()
       self.dismissViewControllerAnimated(true, completion: { () -> Void in });
     }
