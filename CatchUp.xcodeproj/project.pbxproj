@@ -34,6 +34,18 @@
 		4C517A9719FD6903001613AA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517A9619FD6903001613AA /* CoreTelephony.framework */; };
 		4C517A9A19FD6E2A001613AA /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A9919FD6E2A001613AA /* Hash.m */; };
 		4C517A9C19FD70C5001613AA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A9B19FD70C5001613AA /* Settings.swift */; };
+		4C517AC719FD7AEF001613AA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A9B19FD70C5001613AA /* Settings.swift */; };
+		4C517AC819FD7B21001613AA /* ContactsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBAFA3D19FA4DB3005355A3 /* ContactsStorage.swift */; };
+		4C517ACD19FD7B94001613AA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517ACB19FD7B94001613AA /* Bolts.framework */; };
+		4C517ACE19FD7B95001613AA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C517ACC19FD7B94001613AA /* Parse.framework */; };
+		4C517ACF19FD7BA7001613AA /* Bolts.framework in Sources */ = {isa = PBXBuildFile; fileRef = 4C517ACB19FD7B94001613AA /* Bolts.framework */; };
+		4C517AD019FD7BA7001613AA /* Parse.framework in Sources */ = {isa = PBXBuildFile; fileRef = 4C517ACC19FD7B94001613AA /* Parse.framework */; };
+		4C517AD119FD7BCE001613AA /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF7F91419FA3ADF00508CD8 /* Array.swift */; };
+		4C517AD219FD7BE0001613AA /* AddressBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0A78119F8EADF006D2BC3 /* AddressBook.swift */; };
+		4C517AD319FD7C2D001613AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A119F44BE20095DEB4 /* AudioToolbox.framework */; };
+		4C517AD419FD7C34001613AA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4029A319F44BE90095DEB4 /* CFNetwork.framework */; };
+		4C517AD519FD7C59001613AA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C40299F19F44BDA0095DEB4 /* SystemConfiguration.framework */; };
+		4C517AD619FD7E4A001613AA /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C517A9919FD6E2A001613AA /* Hash.m */; };
 		4C966C2A19F58E8F00A03660 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */; };
 		4C9ED5A319F5958000B3A895 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */; };
 		4CB2255E19F6A83600D8814A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2255D19F6A83600D8814A /* Contact.swift */; };
@@ -119,6 +131,8 @@
 		4C517A9B19FD70C5001613AA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4C517A9D19FD71A3001613AA /* CatchUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CatchUp.entitlements; sourceTree = "<group>"; };
 		4C517A9E19FD71BC001613AA /* SendTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SendTo.entitlements; sourceTree = "<group>"; };
+		4C517ACB19FD7B94001613AA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4C517ACC19FD7B94001613AA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4C966C2919F58E8F00A03660 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		4C9ED5A219F5958000B3A895 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		4CB2255D19F6A83600D8814A /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -149,13 +163,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C517AD519FD7C59001613AA /* SystemConfiguration.framework in Frameworks */,
+				4C517AD419FD7C34001613AA /* CFNetwork.framework in Frameworks */,
+				4C517AD319FD7C2D001613AA /* AudioToolbox.framework in Frameworks */,
 				4C517A9719FD6903001613AA /* CoreTelephony.framework in Frameworks */,
+				4C517ACE19FD7B95001613AA /* Parse.framework in Frameworks */,
 				4C517A9219FD68E0001613AA /* libPods-CatchUp-APAddressBook.a in Frameworks */,
 				4C517A9319FD68E0001613AA /* libPods-CatchUp-libPhoneNumber-iOS.a in Frameworks */,
 				4C517A9419FD68E0001613AA /* libPods-CatchUp-NSHash.a in Frameworks */,
 				4C517A9519FD68E0001613AA /* libPods-CatchUp-vCardSerialization.a in Frameworks */,
 				4C517A8D19FD68A2001613AA /* libPods-CatchUp.a in Frameworks */,
 				4C517A8819FD56C3001613AA /* AddressBook.framework in Frameworks */,
+				4C517ACD19FD7B94001613AA /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +272,8 @@
 		4C517A7A19FD5088001613AA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C517ACB19FD7B94001613AA /* Bolts.framework */,
+				4C517ACC19FD7B94001613AA /* Parse.framework */,
 				4C517A7B19FD5088001613AA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -567,6 +588,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C517AD219FD7BE0001613AA /* AddressBook.swift in Sources */,
+				4C517AD119FD7BCE001613AA /* Array.swift in Sources */,
+				4C517ACF19FD7BA7001613AA /* Bolts.framework in Sources */,
+				4C517AD019FD7BA7001613AA /* Parse.framework in Sources */,
+				4C517AC819FD7B21001613AA /* ContactsStorage.swift in Sources */,
+				4C517AC719FD7AEF001613AA /* Settings.swift in Sources */,
 				4C517A7D19FD5088001613AA /* ActionViewController.swift in Sources */,
 				4C517A9A19FD6E2A001613AA /* Hash.m in Sources */,
 			);
@@ -576,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C517AD619FD7E4A001613AA /* Hash.m in Sources */,
 				4CB2255E19F6A83600D8814A /* Contact.swift in Sources */,
 				4CF7F91519FA3ADF00508CD8 /* Array.swift in Sources */,
 				4C40299A19F43DDB0095DEB4 /* CapturePhoneNumberViewController.swift in Sources */,
@@ -644,6 +672,10 @@
 				CODE_SIGN_ENTITLEMENTS = SendTo/SendTo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SendTo",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -676,6 +708,10 @@
 				CODE_SIGN_ENTITLEMENTS = SendTo/SendTo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SendTo",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

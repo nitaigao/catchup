@@ -17,16 +17,21 @@ class ContactsStorage {
   }
   
   class func selectContact(userId:String, contactId:String) {
-    PFUser.query().getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
-      var contacts = user.relationForKey("contacts")
-      var contact = PFObject(className: "Contact")
-      contact["contact_id"] = contactId
-      contact.saveEventually({ (result:Bool, error:NSError!) -> Void in
-        contacts.addObject(contact)
-        user.saveEventually()
-        PFCloud.callFunctionInBackground("catchup_requested", withParameters:["user_id":userId, "contact_id":contactId], block: nil)
+    dispatch_async(dispatch_get_main_queue()) {
+      PFUser.query().getObjectInBackgroundWithId(userId, block: { (user:PFObject!, error:NSError!) -> Void in
+        var contacts = user.relationForKey("contacts")
+        var contact = PFObject(className: "Contact")
+        contact["contact_id"] = contactId
+        contact.saveInBackgroundWithBlock({ (result:Bool, error:NSError!) -> Void in
+          contacts.addObject(contact)
+          println(contact)
+          println(user)
+          user.saveInBackgroundWithBlock({ (result:Bool, error:NSError!) -> Void in
+            PFCloud.callFunctionInBackground("catchup_requested", withParameters:["user_id":userId, "contact_id":contactId], block: nil)
+          })
+        })
       })
-    })
+    }
   }
   
   class func deselectContact(userId:String, contactId:String) {
@@ -42,7 +47,7 @@ class ContactsStorage {
   class func phoneId(phoneNumber:AnyObject) -> String {
     var numberFormatter = NBPhoneNumberUtil.sharedInstance()
     var normalizedNumber = numberFormatter.normalizePhoneNumber(phoneNumber as String)
-    var contactId = normalizedNumber.SHA1()
+    var contactId = Hash.SHA1(normalizedNumber)
     return contactId;
   }
   

@@ -11,7 +11,7 @@
 #import "APContact.h"
 #import "APAddress.h"
 #import "APPhoneWithLabel.h"
-
+#import "Hash.h"
 #import <NSHash/NSString+NSHash.h>
 
 #import "NBPhoneNumberUtil.h"

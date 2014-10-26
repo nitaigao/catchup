@@ -13,15 +13,10 @@ class ActionViewController: UIViewController {
     return results
   }
   
-  func phoneId(phoneNumber:AnyObject) -> String {
-    var numberFormatter = NBPhoneNumberUtil.sharedInstance()
-    var normalizedNumber = numberFormatter.normalizePhoneNumber(phoneNumber as String)
-    var contactId = Hash.SHA1(normalizedNumber)
-    return contactId;
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    Parse.setApplicationId("m2lzGhNQcPev2ivKqfRRVr4ZP12k0LDP79FzMkTl", clientKey:"E9GdH2RRXh1k88SnjtRiEl6tCbfcTshi5MFsVAgw")
 
     for item: AnyObject in self.extensionContext!.inputItems {
       let inputItem = item as NSExtensionItem
@@ -33,11 +28,9 @@ class ActionViewController: UIViewController {
             var addressBookRecord : ABRecordRef = vCardSerialization.addressBookRecordsWithVCardData(vCardData, error: nil).first!
             var numbers = self.phoneNumbers(addressBookRecord)
             for number in numbers {
-              var phoneId = self.phoneId(number)
-              var kDefaultsPackage = "group.CatchUp"
-              var defaults : NSUserDefaults = NSUserDefaults(suiteName: kDefaultsPackage)!
-              var userId : NSString = defaults.objectForKey("user_id") as NSString
-              println(userId)
+              var phoneId = ContactsStorage.phoneId(number)
+              ContactsStorage.selectContact(Settings.userId, contactId: phoneId)
+              break
             }
           })
           break
@@ -46,14 +39,7 @@ class ActionViewController: UIViewController {
     }
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
   @IBAction func done() {
-    // Return any edited content to the host app.
-    // This template doesn't do anything, so we just echo the passed in items.
     self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
   }
 
